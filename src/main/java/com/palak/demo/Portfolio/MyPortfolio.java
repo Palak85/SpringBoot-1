@@ -23,10 +23,36 @@ public class MyPortfolio {
                 """;
     }
 
-//    @GetMapping("/Skills")
-//    public String skills(){
+    @GetMapping("/skills")
+    public String Skills(){
+        return """
+                <h1> My Skills </h1>
+                <ul>
+                <li> Languages : C/C++, Java </li>
+                <li> Web Technologies : HTMl , CSS , Tailwind CSS, ReactJS, NodeJS </li>
+                <li> Tools/Platform : Git , GitHub , Visual Studio Code , Figma , Canva </li>
+                <li> Soft Skills : Problem solving , Time management , Teamwork </li> 
+                </ul>
+                """;
+    }
+
+//    @GetMapping("/education")
+//    public String Education(){
 //        return """
-//                <h1> My Skills </h1>
+//                <h1> Education </h1>
+//                <ul>
+//                    <li>
+//                <ul>
 //                """;
 //    }
+//
+//    @GetMapping("/project")
+//    public String Project(){
+//        return """
+//                <h1>Project</h1>
+//
+//                """;
+//    }
+
+
 }
