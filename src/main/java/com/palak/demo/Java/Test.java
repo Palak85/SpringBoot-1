@@ -1,4 +1,4 @@
-package com.palak.demo;
+package com.palak.demo.Java;
 
 class P{
     void m1(){
