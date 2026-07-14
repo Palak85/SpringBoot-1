@@ -65,14 +65,39 @@ public class MyPortfolio {
                 </ul>
                 """;
     }
-//
-//    @GetMapping("/project")
-//    public String Project(){
-//        return """
-//                <h1>Project</h1>
-//
-//                """;
-//    }
+
+    @GetMapping("/project")
+    public String Project(){
+        return """
+                <h1>Projects</h1>
+
+                <h2>1. Smart Curriculum and Attendance App</h2>
+
+                <ul>
+                    <li>Built a platform to manage attendance, assignments and curriculum digitally.</li>
+
+                    <li>Implemented Student, Teacher and Admin modules with role-based access.</li>
+
+                    <li>Improved school workflow by reducing manual record keeping and increasing efficiency by 45%.</li>
+
+                    <li><b>Tech Stack:</b> HTML, Tailwind CSS, React JS, Node JS</li>
+                </ul>
+
+                <hr>
+
+                <h2>2. Restaurant Order Management System</h2>
+
+                <ul>
+                    <li>Developed an online food ordering and table reservation system.</li>
+
+                    <li>Implemented real-time order status updates and feedback management.</li>
+
+                    <li>Improved order processing efficiency by over 40%.</li>
+
+                    <li><b>Tech Stack:</b> HTML, CSS, JavaScript, PHP, MySQL</li>
+                </ul>
+                """;
+    }
 
 
 }
