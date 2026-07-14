@@ -36,15 +36,35 @@ public class MyPortfolio {
                 """;
     }
 
-//    @GetMapping("/education")
-//    public String Education(){
-//        return """
-//                <h1> Education </h1>
-//                <ul>
-//                    <li>
-//                <ul>
-//                """;
-//    }
+    @GetMapping("/education")
+    public String Education(){
+        return """
+                <h1> Education </h1>
+                <ul>
+                    <li>
+                        <h3>Lovely Professional University</h3>
+                        <p>B.Tech - Computer Science and Engineering</p>
+                        <p>Since Aug 2023</p>
+                    </li>    
+                    
+                    <br>
+
+                    <li>
+                        <h3>MD Carmel School, Buxar</h3>
+                        <p>Intermediate (PCM)</p>
+                        <p>2021 - 2022</p>
+                    </li>
+
+                    <br>
+
+                    <li>
+                        <h3>MD Carmel School, Buxar</h3>
+                        <p>Matriculation</p>
+                        <p>2019 - 2020</p>
+                    </li>                                                       
+                </ul>
+                """;
+    }
 //
 //    @GetMapping("/project")
 //    public String Project(){
