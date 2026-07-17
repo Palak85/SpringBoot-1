@@ -26,10 +26,25 @@ public class StudentController {
         return ResponseEntity.status(201).body(result);
     }
 
+    //get data by id
     @GetMapping("/get/{id}")
     public ResponseEntity<?> getStudent(@PathVariable int id){
         Student student =  studentService.getStudentById(id);
         return ResponseEntity.status(200).body(student);
 
+    }
+
+    //update data of id
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateStudent(@PathVariable int id,
+                                           @RequestBody Student student) {
+
+        Student updatedStudent = studentService.updateStudent(id, student);
+
+        if (updatedStudent == null) {
+            return ResponseEntity.status(404).body("Student Not Found");
+        }
+
+        return ResponseEntity.ok(updatedStudent);
     }
 }
