@@ -47,4 +47,15 @@ public class StudentService {
 
         return studentRepository.save(student);
     }
+
+    //delete data
+    public boolean deleteStudent(int id) {
+
+        if (!studentRepository.existsById(id)) {
+            return false;
+        }
+
+        studentRepository.deleteById(id);
+        return true;
+    }
 }
