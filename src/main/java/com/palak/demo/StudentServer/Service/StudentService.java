@@ -1,5 +1,7 @@
-package com.palak.demo.StudentServer;
+package com.palak.demo.StudentServer.Service;
 
+import com.palak.demo.StudentServer.Entity.Student;
+import com.palak.demo.StudentServer.Repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,5 +25,9 @@ public class StudentService {
 
         studentRepository.save(student);
         return student;
+    }
+
+    public Student getStudentById(int id){
+        return studentRepository.findById(id).orElse(null);
     }
 }
