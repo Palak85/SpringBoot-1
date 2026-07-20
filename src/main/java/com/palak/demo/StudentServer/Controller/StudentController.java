@@ -74,6 +74,7 @@ import com.palak.demo.StudentServer.DTO.CreateStudentRequestDTO;
 import com.palak.demo.StudentServer.DTO.CreateStudentResponseDTO;
 import com.palak.demo.StudentServer.Entity.Student;
 import com.palak.demo.StudentServer.Service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -89,7 +90,8 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> storeStudent(@RequestBody CreateStudentRequestDTO createStudentRequestDTO) {
+    public ResponseEntity<?> storeStudent(
+            @Valid @RequestBody CreateStudentRequestDTO createStudentRequestDTO) {
         CreateStudentResponseDTO result = studentService.studentValidate(createStudentRequestDTO);
 
         if(result == null)
