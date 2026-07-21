@@ -7,9 +7,17 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalException {
-    @ExceptionHandler(RuntimeException.class)
 
-    public ResponseEntity<String> handleRuntimeExecutionException(RuntimeException e){
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleCheckedException(Exception e) {
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(e.getMessage());
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<String> handleRuntimeException(RuntimeException e) {
+
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(e.getMessage());
     }

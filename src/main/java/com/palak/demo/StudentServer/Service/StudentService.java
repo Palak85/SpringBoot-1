@@ -124,11 +124,22 @@ public class StudentService {
         return mapToResponseDTO(student);
     }
 
-    public Student getStudentById(int id) {
-        Optional<Student> student =  studentRepository.findById(id);
-//        return studentRepository.findById(id).orElse(null);
-        return student.get();
-    }
+//    public Student getStudentById(int id) {
+//        Optional<Student> student =  studentRepository.findById(id);
+////        return studentRepository.findById(id).orElse(null);
+//        return student.get();
+//    }
+
+        public Student getStudentById(int id) throws Exception {
+
+            Optional<Student> student = studentRepository.findById(id);
+
+            if (student.isEmpty()) {
+                throw new Exception("Student not found");
+            }
+
+            return student.get();
+        }
 
     public Student updateStudent(int id, Student student) {
 

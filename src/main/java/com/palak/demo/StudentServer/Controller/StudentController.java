@@ -101,17 +101,26 @@ public class StudentController {
         return  ResponseEntity.status(201).body(result);
     }
 
-    @GetMapping("/get/{id}")
-    public ResponseEntity<?> getStudentById(@PathVariable int id){
-
-        Student student = studentService.getStudentById(id);
-
+//    @GetMapping("/get/{id}")
+//    public ResponseEntity<?> getStudentById(@PathVariable int id){
+//
+//        Student student = studentService.getStudentById(id);
+//
 //        if(student == null){
 //            return ResponseEntity.status(404).body("Student not found");
 //        }
+//
+//        return ResponseEntity.ok(student);
+//    }
 
-        return ResponseEntity.ok(student);
-    }
+        @GetMapping("/get/{id}")
+        public ResponseEntity<?> getStudentById(@PathVariable int id)
+                throws Exception {
+
+            Student student = studentService.getStudentById(id);
+
+            return ResponseEntity.ok(student);
+        }
 
 //    @PutMapping("/update/{id}")
 //    public ResponseEntity<?> updateStudent(@PathVariable int id, @RequestBody Student student){
