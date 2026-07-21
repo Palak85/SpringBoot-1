@@ -1,5 +1,6 @@
 package com.palak.demo.StudentServer.DTO;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import lombok.Getter;
@@ -14,4 +15,7 @@ public class CreateStudentRequestDTO {
     private int age;
     @NotBlank(message = "Department is required")
     private String department;
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
+    String email;
 }

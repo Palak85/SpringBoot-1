@@ -15,5 +15,5 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 //        return student;
 //    }
 
-
+    Student findByEmail(String email);
 }

@@ -65,10 +65,7 @@
 
 package com.palak.demo.StudentServer.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -81,8 +78,19 @@ public class Student {
     private String name;
     private int age;
     private String department;
+
+//    @Column(unique = true)
+    private String email;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

@@ -91,14 +91,13 @@ public class StudentController {
 
     @PostMapping("/create")
     public ResponseEntity<?> storeStudent(
-            @Valid @RequestBody CreateStudentRequestDTO createStudentRequestDTO) {
-        CreateStudentResponseDTO result = studentService.studentValidate(createStudentRequestDTO);
+            @Valid @RequestBody CreateStudentRequestDTO createStudentRequestDTO)
+            throws Exception {
 
-        if(result == null)
-        {
-            return ResponseEntity.status(400).body("Invalid input");
-        }
-        return  ResponseEntity.status(201).body(result);
+        CreateStudentResponseDTO result =
+                studentService.studentValidate(createStudentRequestDTO);
+
+        return ResponseEntity.status(201).body(result);
     }
 
 //    @GetMapping("/get/{id}")
