@@ -106,9 +106,9 @@ public class StudentController {
 
         Student student = studentService.getStudentById(id);
 
-        if(student == null){
-            return ResponseEntity.status(404).body("Student not found");
-        }
+//        if(student == null){
+//            return ResponseEntity.status(404).body("Student not found");
+//        }
 
         return ResponseEntity.ok(student);
     }
