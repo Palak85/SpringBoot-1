@@ -97,6 +97,7 @@ package com.palak.demo.StudentServer.Service;
 
 import com.palak.demo.StudentServer.DTO.CreateStudentRequestDTO;
 import com.palak.demo.StudentServer.DTO.CreateStudentResponseDTO;
+import com.palak.demo.StudentServer.DTO.UpdateStudentRequestDTO;
 import com.palak.demo.StudentServer.Entity.Student;
 import com.palak.demo.StudentServer.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,19 +152,18 @@ public class StudentService {
             return student.get();
         }
 
-    public Student updateStudent(int id, Student student) {
+    public Student updateStudent(int id, UpdateStudentRequestDTO dto) {
 
-        Student result = studentRepository.findById(id).orElse(null);
+        Student student = studentRepository.findById(id).orElse(null);
 
-        if (result == null) {
+        if (student == null) {
             return null;
         }
-        result.setName(student.getName());
-        result.setAge(student.getAge());
-        result.setDepartment(student.getDepartment());
-        result.setUpdatedAt(LocalDateTime.now());
 
-        return studentRepository.save(result);
+        student.setName(dto.getName());
+        student.setAge(dto.getAge());
+
+        return studentRepository.save(student);
     }
 
     public boolean deleteStudent(int id) {

@@ -72,6 +72,7 @@ package com.palak.demo.StudentServer.Controller;
 
 import com.palak.demo.StudentServer.DTO.CreateStudentRequestDTO;
 import com.palak.demo.StudentServer.DTO.CreateStudentResponseDTO;
+import com.palak.demo.StudentServer.DTO.UpdateStudentRequestDTO;
 import com.palak.demo.StudentServer.Entity.Student;
 import com.palak.demo.StudentServer.Service.StudentService;
 import jakarta.validation.Valid;
@@ -121,15 +122,19 @@ public class StudentController {
             return ResponseEntity.ok(student);
         }
 
-//    @PutMapping("/update/{id}")
-//    public ResponseEntity<?> updateStudent(@PathVariable int id, @RequestBody Student student){
-//        Student result = studentService.studentUpdate(id, student);
-//        if(result == null)
-//        {
-//            return ResponseEntity.status(400).body("Invalid input");
-//        }
-//        return ResponseEntity.status(200).body(result);
-//    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateStudent(
+            @PathVariable int id,
+            @RequestBody UpdateStudentRequestDTO dto) {
+
+        Student student = studentService.updateStudent(id, dto);
+
+        if (student == null) {
+            return ResponseEntity.status(404).body("Student Not Found");
+        }
+
+        return ResponseEntity.ok(student);
+    }
 //
 //    @DeleteMapping("/delete/{id}")
 //    public ResponseEntity<?> deleteStudent(@PathVariable int id){
@@ -139,4 +144,15 @@ public class StudentController {
 //        }
 //        return ResponseEntity.status(200).body("Student deleted");
 //    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable int id) {
+
+        boolean deleted = studentService.deleteStudent(id);
+
+        if (!deleted) {
+            return ResponseEntity.status(404).body("Student Not Found");
+        }
+
+        return ResponseEntity.ok("Student Deleted Successfully");
+    }
 }
